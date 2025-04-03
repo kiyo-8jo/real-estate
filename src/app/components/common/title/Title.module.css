@@ -1,0 +1,16 @@
+.title {
+  display: flex;
+  align-items: center;
+  height: 50px;
+  margin-bottom: 50px;
+  padding-left: 20px;
+  border-top: 3px solid #5aae08;
+  box-shadow: 0px 5px 5px 5px #eaeaea;
+  font-size: x-large;
+}
+
+@media screen and (max-width: 768px) {
+  .title {
+    font-size: large;
+  }
+}
