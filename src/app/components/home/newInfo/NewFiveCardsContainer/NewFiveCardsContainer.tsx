@@ -4,7 +4,9 @@ import Card from "@/app/components/common/card/Card";
 
 const NewFiveCardsContainer = async () => {
   // 全てのデータを新着順で取得
-  const res = await fetch("http://localhost:3000/api/getAllData");
+  const res = await fetch(
+    "https://real-estate-git-main-kiyo-8jos-projects.vercel.app/api/getAllData"
+  );
   const realEstates = await res.json();
   // 新着の5件のみ表示
   const filteredRealEstates = realEstates.slice(0, 5);
