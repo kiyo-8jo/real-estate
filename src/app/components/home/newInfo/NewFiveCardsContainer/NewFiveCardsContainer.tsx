@@ -20,3 +20,5 @@ const NewFiveCardsContainer = async () => {
 };
 
 export default NewFiveCardsContainer;
+export const dynamic = "force-dynamic";
+export const fetchCache = "force-no-store";
