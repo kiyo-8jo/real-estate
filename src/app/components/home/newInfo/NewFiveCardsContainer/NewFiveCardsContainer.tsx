@@ -2,10 +2,15 @@ import styles from "./NewFiveCardsContainer.module.css";
 import { RealEstateDataType } from "@/app/types/types";
 import Card from "@/app/components/common/card/Card";
 
+export const dynamic = "force-dynamic";
+export const fetchCache = "force-no-store";
+
 const NewFiveCardsContainer = async () => {
   // 全てのデータを新着順で取得
-  const API_URL = process.env.API_URL;
-  const res = await fetch(`${API_URL}/api/getAllData`);
+  // const API_URL = process.env.API_URL;
+  const res = await fetch(`http://localhost:3000/api/getAllData`, {
+    cache: "no-store",
+  });
   const realEstates = await res.json();
   // 新着の5件のみ表示
   const filteredRealEstates = realEstates.slice(0, 5);
@@ -20,5 +25,3 @@ const NewFiveCardsContainer = async () => {
 };
 
 export default NewFiveCardsContainer;
-export const dynamic = "force-dynamic";
-export const fetchCache = "force-no-store";
