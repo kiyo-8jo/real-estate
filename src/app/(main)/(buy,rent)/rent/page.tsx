@@ -43,10 +43,8 @@ const RentPage = () => {
   useEffect(() => {
     const fetchData = async () => {
       // selectedOptionによってたたくapiを変える
-      const API_URL = process.env.API_URL;
-
       const res = await fetch(
-        `${API_URL}/api/getAllRentData/${selectedOption}`,
+        `${process.env.NEXT_PUBLIC_API_URL}/api/getAllRentData/${selectedOption}`,
         {
           method: "POST",
           body: JSON.stringify({
