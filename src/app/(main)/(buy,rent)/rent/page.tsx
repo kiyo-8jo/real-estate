@@ -44,6 +44,7 @@ const RentPage = () => {
     const fetchData = async () => {
       // selectedOptionによってたたくapiを変える
       const res = await fetch(
+        // `${process.env.NEXT_PUBLIC_LOCAL_URL}/api/getAllRentData/${selectedOption}`,
         `${process.env.NEXT_PUBLIC_API_URL}/api/getAllRentData/${selectedOption}`,
         {
           method: "POST",
@@ -52,7 +53,6 @@ const RentPage = () => {
             area: selectedArea,
             buildingType: selectedBuildingType,
           }),
-          cache: "no-store",
         }
       );
       const _realEstates = await res.json();
