@@ -47,8 +47,9 @@ const BuyPage = () => {
   useEffect(() => {
     const fetchData = async () => {
       // selectedOptionによってたたくapiを変える
+      const API_URL = process.env.NEXT_PUBLIC_API_URL;
       const res = await fetch(
-        `http://localhost:3000/api/getAllBuyData/${selectedOption}`,
+        `${API_URL}/api/getAllBuyData/${selectedOption}`,
         {
           method: "POST",
           body: JSON.stringify({
@@ -73,7 +74,7 @@ const BuyPage = () => {
   return (
     <div className={styles.wrapper}>
       <Title title={"買う / Buy"} />
-      <BuyImg/>
+      <BuyImg />
       <SelectButtons
         setSelectedOption={setSelectedOption}
         setSelectedArea={setSelectedArea}
