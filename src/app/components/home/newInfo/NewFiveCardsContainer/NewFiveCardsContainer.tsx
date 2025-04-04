@@ -7,7 +7,8 @@ export const fetchCache = "force-no-store";
 
 const NewFiveCardsContainer = async () => {
   // 全てのデータを新着順で取得
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/getAllData`, {
+  const API_URL = process.env.NEXT_PUBLIC_API_URL;
+  const res = await fetch(`${API_URL}/api/getAllData`, {
     cache: "no-store",
   });
   const realEstates = await res.json();
