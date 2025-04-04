@@ -1,0 +1,97 @@
+.wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0 50px;
+  margin-bottom: 10px;
+  user-select: none;
+}
+
+.button_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.button_container button,
+.button_container p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  height: 50px;
+  padding: 5px;
+  margin: 0 1px;
+  border: none;
+}
+
+.button_container p {
+  background-color: gray;
+  margin-right: 10px;
+}
+
+.button_container button {
+  background-color: #6cce09;
+  cursor: pointer;
+}
+
+.button_container button:last-child {
+  background-color: #5a862e;
+  margin-left: 10px;
+}
+
+.select_container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 20px 0;
+}
+
+.select_container p {
+  height: 20px;
+  margin-right: 10px;
+}
+
+.select_container select {
+  height: 20px;
+}
+
+.button_container .active {
+  background-color: rgb(231, 178, 98);
+}
+@media screen and (max-width: 1280px) {
+  .button_container button,
+  .button_container p {
+    font-size: x-small;
+    width: 150px;
+    height: 50px;
+    padding: 5px;
+    margin: 0 1px;
+  }
+  .select_container p {
+    font-size: small;
+  }
+  .select_container select {
+    font-size: small;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .button_container button,
+  .button_container p {
+    font-size: x-small;
+    height: 80px;
+    padding: 10px;
+    margin: 0 1px;
+  }
+  .select_container p {
+    font-size: x-small;
+    display: flex;
+    align-items: center;
+  }
+  .select_container select {
+    font-size: x-small;
+  }
+}

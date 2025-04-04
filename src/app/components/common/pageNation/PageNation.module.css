@@ -1,0 +1,27 @@
+.wrapper {
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 80px;
+  user-select: none;
+}
+
+.container {
+  display: flex;
+}
+
+.wrapper p {
+  margin: 0 20px;
+  cursor: pointer;
+}
+
+.active {
+  color: green;
+}
+
+@media screen and (max-width: 1280px) {
+  .wrapper p {
+    font-size: small;
+  }
+}
