@@ -43,8 +43,10 @@ const RentPage = () => {
   useEffect(() => {
     const fetchData = async () => {
       // selectedOptionによってたたくapiを変える
+      const API_URL = process.env.API_URL;
+
       const res = await fetch(
-        `http://localhost:3000/api/getAllRentData/${selectedOption}`,
+        `${API_URL}/api/getAllRentData/${selectedOption}`,
         {
           method: "POST",
           body: JSON.stringify({
@@ -52,6 +54,7 @@ const RentPage = () => {
             area: selectedArea,
             buildingType: selectedBuildingType,
           }),
+          cache: "no-store",
         }
       );
       const _realEstates = await res.json();
