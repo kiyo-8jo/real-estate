@@ -23,6 +23,7 @@
     "eslint": "^8",
     "eslint-config-next": "15.0.3",
     "prisma": "^6.5.0",
+    "react-email": "4.0.4",
     "typescript": "^5"
   }
 }
