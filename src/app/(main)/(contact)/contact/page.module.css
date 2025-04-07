@@ -1,0 +1,103 @@
+.wrapper {
+  width: 100%;
+  max-width: 1024px;
+  margin: 80px auto 0 auto;
+  padding: 50px;
+  user-select: none;
+}
+
+.form_part_container {
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.label_container {
+  display: flex;
+  margin-bottom: 10px;
+  align-items: center;
+}
+
+.form_part_container label {
+  font-weight: bold;
+}
+.form_part_container span {
+  font-weight: bold;
+  margin-left: 10px;
+  padding: 1px 5px;
+  background-color: #cccccc;
+  border-radius: 10px;
+  font-size: small;
+}
+
+.form_part_container input {
+  margin-left: 1px;
+  width: 50%;
+  line-height: 1rem;
+  padding: 10px;
+}
+
+.form_part_container textarea {
+  margin-left: 1px;
+  width: 100%;
+  height: 100px;
+  padding: 10px;
+  resize: none;
+}
+
+.button_container {
+  display: flex;
+  justify-content: center;
+}
+
+.personalDataContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.personalDataContainer .title {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.personalDataContainer .input_container {
+  display: flex;
+  align-items: center;
+}
+.personalDataContainer .input_container input {
+  margin-right: 20px;
+}
+
+.click {
+  color: rgb(226, 98, 98);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.button_container button {
+  margin-top: 26.5px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: rgb(82, 187, 100);
+  font-size: medium;
+  cursor: pointer;
+  border: none;
+}
+
+@media screen and (max-width: 1280px) {
+  .wrapper {
+    font-size: small;
+    min-height: 90vh;
+  }
+
+  .button_container button {
+    font-size: small;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .form_part_container input {
+    width: 100%;
+  }
+}
