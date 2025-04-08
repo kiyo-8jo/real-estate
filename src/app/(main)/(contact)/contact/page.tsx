@@ -4,8 +4,10 @@ import Title from "@/app/components/common/title/Title";
 import styles from "./page.module.css";
 import { useState } from "react";
 import Document from "@/app/components/common/document/Document";
+import { useRouter } from "next/navigation";
 
 const ContactPage = () => {
+  const router = useRouter();
   // documentを表示させるかどうかのstate
   const [display, setDisplay] = useState<boolean>(false);
   // checkboxにcheckされているかどうかのstate
@@ -45,6 +47,7 @@ const ContactPage = () => {
   // formのsubmit
   const handleSubmit = async (e: React.FormEvent) => {
     const API_URL = process.env.NEXT_PUBLIC_API_URL;
+
     e.preventDefault();
     if (!name || !email || !inquiry || !checked) {
       alert("必須項目に入力がありません");
@@ -61,6 +64,8 @@ const ContactPage = () => {
     } catch (error) {
       alert(error);
     }
+    router.push("/");
+    alert("メールを送信しました");
   };
 
   return (
