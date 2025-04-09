@@ -5,7 +5,7 @@ import styles from "./Header.module.css";
 import { FaHome } from "react-icons/fa";
 import { IoHomeOutline } from "react-icons/io5";
 import { FaPerson } from "react-icons/fa6";
-import { IoMdMail } from "react-icons/io";
+// import { IoMdMail } from "react-icons/io";
 
 const Header = () => {
   return (
@@ -31,14 +31,14 @@ const Header = () => {
         <div>
           <Link href="/owner">
             <FaPerson />
-            <p>オーナー</p>
+            <p>オーナー様</p>
           </Link>
         </div>
         <div>
-          <Link href="/contact">
+          {/* <Link href="/contact">
             <IoMdMail />
             <p>問い合わせ</p>
-          </Link>
+          </Link> */}
         </div>
       </div>
     </div>
