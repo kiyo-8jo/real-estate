@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 import { RealEstateDataType } from "@/app/types/types";
 import AllRentCardsContainer from "@/app/components/rent/allRentCardsContainer/AllRentCardsContainer";
 import { useParams } from "next/navigation";
-import RentImg from "@/app/components/img/rent/RentImg";
+import RentGoogleMap from "@/app/components/rent/RentGoogleMap/RentGoogleMap";
 
 const RentPage = () => {
   const { area }: { area: string } = useParams();
@@ -74,7 +74,7 @@ const RentPage = () => {
   return (
     <div className={styles.wrapper}>
       <Title title={"借りる / Rent"} />
-      <RentImg />
+      <RentGoogleMap/>
       <SelectButtons
         setSelectedOption={setSelectedOption}
         setSelectedArea={setSelectedArea}
