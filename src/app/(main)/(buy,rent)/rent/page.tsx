@@ -7,7 +7,7 @@ import PageNation from "@/app/components/common/pageNation/PageNation";
 import { useEffect, useState } from "react";
 import { RealEstateDataType } from "@/app/types/types";
 import AllRentCardsContainer from "@/app/components/rent/allRentCardsContainer/AllRentCardsContainer";
-import RentImg from "@/app/components/img/rent/RentImg";
+import RentGoogleMap from "@/app/components/rent/RentGoogleMap/RentGoogleMap";
 
 const RentPage = () => {
   // 取得したデータを格納するstate
@@ -72,7 +72,7 @@ const RentPage = () => {
   return (
     <div className={styles.wrapper}>
       <Title title={"借りる / Rent"} />
-      <RentImg />
+      <RentGoogleMap/>
       <SelectButtons
         setSelectedOption={setSelectedOption}
         setSelectedArea={setSelectedArea}
