@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import { RealEstateDataType } from "@/app/types/types";
 import AllBuyCardsContainer from "@/app/components/buy/allBuyCardsContainer/AllBuyCardsContainer";
 import BuyImg from "@/app/components/img/buy/BuyImg";
+import BuyGoogleMap from "@/app/components/buy/BuyGoogleMap/BuyGoogleMap";
 
 const BuyPage = () => {
   // 取得したデータを格納するstate
@@ -72,7 +73,7 @@ const BuyPage = () => {
   return (
     <div className={styles.wrapper}>
       <Title title={"買う / Buy"} />
-      <BuyImg />
+      <BuyGoogleMap/>
       <SelectButtons
         setSelectedOption={setSelectedOption}
         setSelectedArea={setSelectedArea}
