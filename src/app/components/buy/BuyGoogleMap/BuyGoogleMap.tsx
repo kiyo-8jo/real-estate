@@ -1,8 +1,8 @@
 import {
   GoogleMap,
   InfoWindow,
-  LoadScript,
   MarkerF,
+  useJsApiLoader,
 } from "@react-google-maps/api";
 import Link from "next/link";
 import { useState } from "react";
@@ -38,6 +38,11 @@ const divStyle = {
 
 const BuyGoogleMap = () => {
   const GOOGLE_MAP_API_KEY = process.env.NEXT_PUBLIC_MY_GOOGLE_MAP_API_KEY!;
+  const { isLoaded } = useJsApiLoader({
+    id: "google-map-script",
+    googleMapsApiKey: GOOGLE_MAP_API_KEY,
+    libraries: ["geometry", "drawing"],
+  });
   const [size, setSize] = useState<undefined | google.maps.Size>(undefined);
   const infoWindowOptions = {
     pixelOffset: size,
@@ -47,7 +52,7 @@ const BuyGoogleMap = () => {
   };
   return (
     <div className={styles.wrapper}>
-      <LoadScript googleMapsApiKey={GOOGLE_MAP_API_KEY}>
+      {isLoaded && (
         <GoogleMap
           center={center}
           zoom={12}
@@ -73,7 +78,7 @@ const BuyGoogleMap = () => {
             </div>
           </InfoWindow>
         </GoogleMap>
-      </LoadScript>
+      )}
     </div>
   );
 };
