@@ -72,7 +72,7 @@ const BuyPage = () => {
   return (
     <div className={styles.wrapper}>
       <Title title={"買う / Buy"} />
-      <BuyGoogleMap/>
+      <BuyGoogleMap />
       <SelectButtons
         setSelectedOption={setSelectedOption}
         setSelectedArea={setSelectedArea}

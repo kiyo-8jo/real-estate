@@ -1,3 +1,4 @@
+import DetailGoogleMap from "@/app/components/detail/DetailGoogleMap/DetailGoogleMap";
 import styles from "./page.module.css";
 import Title from "@/app/components/common/title/Title";
 
@@ -29,7 +30,7 @@ const DetailPage = async ({ params }: { params: Promise<{ id: string }> }) => {
           <p>保証金： 0円</p>
         </div>
       </div>
-      <div className={styles.img}>img</div>
+      <DetailGoogleMap />
       <table className={styles.table}>
         <tbody>
           <tr>
