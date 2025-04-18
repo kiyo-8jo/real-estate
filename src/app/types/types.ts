@@ -15,6 +15,8 @@ export interface RealEstateDataType {
   buildingType: string;
   floor: number;
   allFloor: number;
+  mapLat: number;
+  mapLng: number;
 }
 
 export interface CoordsType {

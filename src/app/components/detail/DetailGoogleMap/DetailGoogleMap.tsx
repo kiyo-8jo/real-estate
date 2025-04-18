@@ -1,9 +1,14 @@
-'use client'
+"use client";
 
 import { GoogleMap, MarkerF, useJsApiLoader } from "@react-google-maps/api";
 import styles from "./DetailGoogleMap.module.css";
 
-const DetailGoogleMap = () => {
+interface LatAndLng {
+  mapLat: number;
+  mapLng: number;
+}
+
+const DetailGoogleMap = (props: LatAndLng) => {
   const GOOGLE_MAP_API_KEY = process.env.NEXT_PUBLIC_MY_GOOGLE_MAP_API_KEY!;
 
   const { isLoaded } = useJsApiLoader({
@@ -20,14 +25,14 @@ const DetailGoogleMap = () => {
 
   // 地図の緯度経度
   const center = {
-    lat: 33.110687,
-    lng: 139.791294,
+    lat: props.mapLat,
+    lng: props.mapLng,
   };
 
   // マーカーの緯度経度
   const marker1 = {
-    lat: 33.077247,
-    lng: 139.788224,
+    lat: props.mapLat,
+    lng: props.mapLng,
   };
 
   return (
