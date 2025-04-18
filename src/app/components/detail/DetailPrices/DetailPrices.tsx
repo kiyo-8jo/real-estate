@@ -1,5 +1,5 @@
 import { RealEstateDataType } from "@/app/types/types";
-import styles from './DetailPrices.module.css'
+import styles from "./DetailPrices.module.css";
 
 interface PricesProps {
   realEstate: RealEstateDataType;

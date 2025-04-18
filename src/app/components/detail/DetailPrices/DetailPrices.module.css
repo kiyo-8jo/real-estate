@@ -1,19 +1,15 @@
-.value_container {
-    margin-bottom: 30px;
-  }
-  
-  .main_value,
-  .sub_value {
-    display: flex;
-    align-items: center;
-  }
-  
-  .main_value p,
-  .sub_value p {
-    margin: 0 5px;
-  }
-  
-  .main_value p:first-child {
-    font-size: xx-large;
-    color: red;
-  }
+.main_value,
+.sub_value {
+  display: flex;
+  align-items: center;
+}
+
+.main_value p,
+.sub_value p {
+  margin: 0 5px;
+}
+
+.main_value p:first-child {
+  font-size: xx-large;
+  color: red;
+}

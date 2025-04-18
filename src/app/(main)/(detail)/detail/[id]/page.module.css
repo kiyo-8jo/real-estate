@@ -6,3 +6,10 @@
   max-width: 1024px;
   user-select: none;
 }
+
+.sub_wrapper {
+  display: flex;
+  justify-content: space-between;
+  
+  margin-bottom: 30px;
+}
