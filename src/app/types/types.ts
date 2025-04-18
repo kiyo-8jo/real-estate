@@ -7,7 +7,7 @@ export interface RealEstateDataType {
   address: string;
   space: number;
   layout: string;
-  value: number;
+  value: string;
   description: string;
   recommendation: number;
   createdAt: Date;

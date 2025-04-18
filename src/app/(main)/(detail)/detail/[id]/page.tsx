@@ -16,7 +16,7 @@ const DetailPage = async ({ params }: { params: Promise<{ id: string }> }) => {
   const realEstate: RealEstateDataType = await res.json();
 
   // 建物種別を日本語に変換する関数
-  const changeJapBuildingType = () => {
+  const changeBuildingTypeToJap = () => {
     let buildingLabel = "";
     buildingTypeArray.map((buildingType) => {
       if (buildingType.value === realEstate.buildingType) {
@@ -31,16 +31,16 @@ const DetailPage = async ({ params }: { params: Promise<{ id: string }> }) => {
       <Title title={realEstate.name} />
       <div className={styles.value_container}>
         <div className={styles.main_value}>
-          <p>{realEstate.value}円</p>
+          <p>{realEstate.value}万円</p>
           <p>/</p>
-          <p>管理費・共益費: 10000円</p>
+          <p>管理費・共益費： -</p>
         </div>
         <div className={styles.sub_value}>
-          <p>敷金： 10000円</p>
+          <p>敷金： -</p>
           <p>/</p>
-          <p>礼金： 10000円</p>
+          <p>礼金： -</p>
           <p>/</p>
-          <p>保証金： 0円</p>
+          <p>保証金： -</p>
         </div>
       </div>
       <DetailGoogleMap mapLat={realEstate.mapLat} mapLng={realEstate.mapLng} />
@@ -52,7 +52,7 @@ const DetailPage = async ({ params }: { params: Promise<{ id: string }> }) => {
           </tr>
           <tr>
             <th>建物種別</th>
-            <td colSpan={4}>{changeJapBuildingType()}</td>
+            <td colSpan={4}>{changeBuildingTypeToJap()}</td>
           </tr>
           <tr>
             <th>間取り</th>

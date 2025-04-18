@@ -16,7 +16,7 @@ model RealEstate {
   address        String
   space          Int
   layout         String
-  value          Int
+  value          String
   description    String
   createdAt      DateTime @default(now())
   recommendation Int      @default(1)
