@@ -2,6 +2,7 @@ import DetailGoogleMap from "@/app/components/detail/DetailGoogleMap/DetailGoogl
 import styles from "./page.module.css";
 import Title from "@/app/components/common/title/Title";
 import { RealEstateDataType } from "@/app/types/types";
+import { buildingTypeArray } from "@/app/options/options";
 
 export const dynamic = "force-dynamic";
 export const fetchCache = "force-no-store";
@@ -13,6 +14,17 @@ const DetailPage = async ({ params }: { params: Promise<{ id: string }> }) => {
     cache: "no-store",
   });
   const realEstate: RealEstateDataType = await res.json();
+
+  // 建物種別を日本語に変換する関数
+  const changeJapBuildingType = () => {
+    let buildingLabel = "";
+    buildingTypeArray.map((buildingType) => {
+      if (buildingType.value === realEstate.buildingType) {
+        buildingLabel = buildingType.label;
+      }
+    });
+    return buildingLabel;
+  };
 
   return (
     <div className={styles.wrapper}>
@@ -31,23 +43,16 @@ const DetailPage = async ({ params }: { params: Promise<{ id: string }> }) => {
           <p>保証金： 0円</p>
         </div>
       </div>
-      <DetailGoogleMap
-        mapLat={realEstate.mapLat}
-        mapLng={realEstate.mapLng}
-      />
+      <DetailGoogleMap mapLat={realEstate.mapLat} mapLng={realEstate.mapLng} />
       <table className={styles.table}>
         <tbody>
           <tr>
-            <th>地域</th>
-            <td colSpan={4}>{realEstate.area}</td>
-          </tr>
-          <tr>
-            <th>住所</th>
+            <th>所在地</th>
             <td colSpan={4}>{realEstate.address}</td>
           </tr>
           <tr>
             <th>建物種別</th>
-            <td colSpan={4}>{realEstate.buildingType}</td>
+            <td colSpan={4}>{changeJapBuildingType()}</td>
           </tr>
           <tr>
             <th>間取り</th>
@@ -59,7 +64,7 @@ const DetailPage = async ({ params }: { params: Promise<{ id: string }> }) => {
           </tr>
           <tr>
             <th>築年数</th>
-            <td>{realEstate.year}</td>
+            <td>築{realEstate.year}年</td>
             <th>階</th>
             <td>1階</td>
           </tr>
