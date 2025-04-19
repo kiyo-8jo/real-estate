@@ -54,7 +54,7 @@ const OwnerPage = () => {
       return;
     }
     try {
-      await fetch(`${API_URL}/api/sendEmail`, {
+      await fetch(`${API_URL}/api/sendEmail/ownerContact`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -10,7 +10,9 @@ interface EmailProps {
 export default function Email({ name, tel, email, inquiry }: EmailProps) {
   return (
     <Html style={{ textAlign: "center" }}>
-      <h1 style={{ fontSize: "32px" }}>問い合わせメールが届きました</h1>
+      <h1 style={{ fontSize: "32px" }}>
+        オーナー様から問い合わせメールが届きました
+      </h1>
       <div style={{ textAlign: "center" }}>
         <div
           style={{

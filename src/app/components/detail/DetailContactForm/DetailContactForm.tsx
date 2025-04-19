@@ -56,7 +56,7 @@ const DetailContactForm = (props: DetailContactFormProps) => {
       return;
     }
     try {
-      await fetch(`${API_URL}/api/sendEmail`, {
+      await fetch(`${API_URL}/api/sendEmail/detailContact`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
