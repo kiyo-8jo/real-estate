@@ -1,33 +1,21 @@
-import { supabase } from "@/app/lib/supabase";
+"use client";
+
 import Image from "next/image";
-// import styles from './DetailImgs.module.css'
+import { Swiper, SwiperSlide } from "swiper/react";
 
 interface DetailImgsProps {
-  id: number;
+  urlAry: string[];
 }
 
-const DetailImgs = async (props: DetailImgsProps) => {
-  // 表示している物件に該当するimgをstorageから取得
-  const { data } = await supabase.storage.from("images").list(`${props.id}`);
-  const dataLength = data!.length;
-
-  //imgのurlを格納する配列
-  const urlAry = [];
-
-  for (let i = 1; i <= dataLength; i++) {
-    const { data } = supabase.storage
-      .from("images")
-      .getPublicUrl(`${props.id}/${i}.png`);
-    const imgUrl = data.publicUrl;
-    urlAry.push(imgUrl);
-  }
-
+const DetailImgs = (props: DetailImgsProps) => {
   return (
-    <div>
-      {urlAry.map((url) => {
-        return <Image src={url} alt={url} width={500} height={400} key={url} />;
-      })}
-    </div>
+    <Swiper>
+      {props.urlAry.map((url) => (
+        <SwiperSlide key={url}>
+          <Image src={url} alt={url} width={500} height={400} />
+        </SwiperSlide>
+      ))}
+    </Swiper>
   );
 };
 
