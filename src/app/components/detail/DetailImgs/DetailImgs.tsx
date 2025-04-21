@@ -7,6 +7,7 @@ interface DetailImgsProps {
 }
 
 const DetailImgs = (props: DetailImgsProps) => {
+  console.log(props.id);
   const { data } = supabase.storage.from("images").getPublicUrl("1-1.png");
   const imgUrl = data.publicUrl;
   return (
