@@ -5,6 +5,7 @@ import Title from "@/app/components/common/title/Title";
 import DetailTable from "@/app/components/detail/DetailTable/DetailTable";
 import DetailPrices from "@/app/components/detail/DetailPrices/DetailPrices";
 import DetailContact from "@/app/components/detail/DetailContact/DetailContact";
+import DetailImgs from "@/app/components/detail/DetailImgs/DetailImgs";
 
 export const dynamic = "force-dynamic";
 export const fetchCache = "force-no-store";
@@ -24,8 +25,9 @@ const DetailPage = async ({ params }: { params: Promise<{ id: string }> }) => {
         <DetailPrices realEstate={realEstate} />
         <DetailContact realEstate={realEstate} />
       </div>
-      <DetailGoogleMap mapLat={realEstate.mapLat} mapLng={realEstate.mapLng} />
+      <DetailImgs id={realEstate.id}/>
       <DetailTable realEstate={realEstate} />
+      <DetailGoogleMap mapLat={realEstate.mapLat} mapLng={realEstate.mapLng} />
     </div>
   );
 };
