@@ -116,7 +116,6 @@ const MainImg = () => {
             target="_blank"
             alt="mitusne_buy"
             title="mitusne_buy"
-            href="http://localhost:3000/buy"
             coords={coords.mitsune.buy.join(",")}
             shape="rect"
           />
@@ -126,7 +125,6 @@ const MainImg = () => {
             target="_blank"
             alt="okago_rent"
             title="okago_rent"
-            href="http://localhost:3000/rent"
             coords={coords.okago.rent.join(",")}
             shape="rect"
           />
@@ -136,7 +134,6 @@ const MainImg = () => {
             target="_blank"
             alt="okago_buy"
             title="okago_buy"
-            href="http://localhost:3000/buy"
             coords={coords.okago.buy.join(",")}
             shape="rect"
           />
@@ -146,7 +143,6 @@ const MainImg = () => {
             target="_blank"
             alt="kashitate_rent"
             title="kashitate_rent"
-            href="http://localhost:3000/rent"
             coords={coords.kashitate.rent.join(",")}
             shape="rect"
           />
@@ -156,7 +152,6 @@ const MainImg = () => {
             target="_blank"
             alt="kashitate_buy"
             title="kashitate_buy"
-            href="http://localhost:3000/buy"
             coords={coords.kashitate.buy.join(",")}
             shape="rect"
           />
@@ -166,7 +161,6 @@ const MainImg = () => {
             target="_blank"
             alt="nakanogo_rent"
             title="nakanogo_rent"
-            href="http://localhost:3000/rent"
             coords={coords.nakanogo.rent.join(",")}
             shape="rect"
           />
@@ -176,7 +170,6 @@ const MainImg = () => {
             target="_blank"
             alt="nakanogo_buy"
             title="nakanogo_buy"
-            href="http://localhost:3000/buy"
             coords={coords.nakanogo.buy.join(",")}
             shape="rect"
           />
@@ -186,7 +179,6 @@ const MainImg = () => {
             target="_blank"
             alt="sueyoshi_rent"
             title="sueyoshi_rent"
-            href="http://localhost:3000/rent"
             coords={coords.sueyoshi.rent.join(",")}
             shape="rect"
           />
@@ -196,7 +188,6 @@ const MainImg = () => {
             target="_blank"
             alt="sueyoshi_buy"
             title="sueyoshi_buy"
-            href="http://localhost:3000/buy"
             coords={coords.sueyoshi.buy.join(",")}
             shape="rect"
           />
