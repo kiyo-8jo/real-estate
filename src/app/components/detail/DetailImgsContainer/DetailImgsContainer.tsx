@@ -1,5 +1,7 @@
 import { supabase } from "@/app/lib/supabase";
 
+import styles from './DetailImgsContainer.module.css'
+
 import "swiper/css";
 import DetailImgs from "../DetailImgs/DetailImgs";
 
@@ -24,9 +26,8 @@ const DetailImgsContainer = async (props: DetailImgsContainerProps) => {
   }
 
   return (
-    <div>
+    <div className={styles.wrapper}>
       <DetailImgs urlAry={urlAry} />
-
     </div>
   );
 };

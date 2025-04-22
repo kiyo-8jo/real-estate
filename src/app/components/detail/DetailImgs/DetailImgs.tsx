@@ -7,8 +7,6 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-// import "./styles.css";
-
 import { Pagination, Navigation } from "swiper/modules";
 
 interface DetailImgsProps {
@@ -19,7 +17,7 @@ const DetailImgs = (props: DetailImgsProps) => {
   return (
     <Swiper
       pagination={{
-        type: "fraction",
+        type: "bullets",
       }}
       navigation={true}
       modules={[Pagination, Navigation]}
@@ -27,7 +25,7 @@ const DetailImgs = (props: DetailImgsProps) => {
     >
       {props.urlAry.map((url) => (
         <SwiperSlide key={url}>
-          <Image src={url} alt={url} width={500} height={400} />
+          <Image src={url} alt={url} width={1000} height={400} priority />
         </SwiperSlide>
       ))}
     </Swiper>
