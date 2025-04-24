@@ -8,6 +8,35 @@
 }
 
 .button_container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.button_container p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 50px;
+  padding: 5px;
+  margin: 0 1px;
+  background-color: gray;
+  margin-right: 10px;
+}
+
+/* .wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0 50px;
+  margin-bottom: 10px;
+  user-select: none;
+}
+
+.button_container {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -94,4 +123,4 @@
   .select_container select {
     font-size: x-small;
   }
-}
+} */

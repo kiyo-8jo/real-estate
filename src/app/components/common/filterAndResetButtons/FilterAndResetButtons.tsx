@@ -1,71 +1,50 @@
-import FilterButton from "./filterButton/FilterButton";
+"use client";
+
+import { useState } from "react";
+import AreaFilterButtons from "./areaFilterButtons/AreaFilterButtons";
+import AreaFilterResetButton from "./areaFilterResetButton/AreaFilterResetButton";
 import styles from "./FilterAndResetButtons.module.css";
-import ResetButton from "./resetButton/ResetButton";
-import { areaArray, buildingTypeArray, options } from "@/app/options/options";
+import BuildingTypeFilterResetButton from "./buildingTypeFilterResetButton/BuildingTypeFilterResetButton";
+import BuildingFilterButtons from "./buildingFilterButtons/BuildingFilterButtons";
+import Select from "./select/Select";
 
-interface FilterAndResetButtonsProps {
-  setSelectedOption: React.Dispatch<React.SetStateAction<string>>;
-  setSelectedArea: React.Dispatch<React.SetStateAction<string | null>>;
-  setSelectedBuildingType: React.Dispatch<React.SetStateAction<string | null>>;
-  setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
-  selectedArea: string | null;
-  selectedBuildingType: string | null;
-}
+const FilterAndResetButtons = () => {
+  const [area, setArea] = useState<string | null>(null);
+  const [buildingType, setBuildingType] = useState<string | null>(null);
+  const [option, setOption] = useState<string>("recommendation");
 
-const FilterAndResetButtons = ({
-  setSelectedOption,
-  setSelectedArea,
-  setSelectedBuildingType,
-  setCurrentPage,
-  selectedArea,
-  selectedBuildingType,
-}: FilterAndResetButtonsProps) => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.button_container}>
         <p>地域</p>
-        {areaArray.map((area) => (
-          <FilterButton
-            key={area.value}
-            setFunction={setSelectedArea}
-            selectedType={selectedArea}
-            value={area.value}
-            label={area.label}
-          />
-        ))}
-        <ResetButton
-          setFunction={setSelectedArea}
-          setCurrentPage={setCurrentPage}
+        <AreaFilterButtons
+          area={area}
+          setArea={setArea}
+          buildingType={buildingType}
+          option={option}
+        />
+        <AreaFilterResetButton
+          setArea={setArea}
+          buildingType={buildingType}
+          option={option}
         />
       </div>
       <div className={styles.button_container}>
         <p>種類</p>
-        {buildingTypeArray.map((buildingType) => (
-          <FilterButton
-            key={buildingType.value}
-            setFunction={setSelectedBuildingType}
-            selectedType={selectedBuildingType}
-            value={buildingType.value}
-            label={buildingType.label}
-          />
-        ))}
-        <ResetButton
-          setFunction={setSelectedBuildingType}
-          setCurrentPage={setCurrentPage}
+        <BuildingFilterButtons
+          buildingType={buildingType}
+          setBuildingType={setBuildingType}
+          area={area}
+          option={option}
+        />
+        <BuildingTypeFilterResetButton
+          setBuildingType={setBuildingType}
+          area={area}
+          option={option}
         />
       </div>
       <div className={styles.select_container}>
-        <p>並び替え :</p>
-        <select
-          onChange={(e) => setSelectedOption(e.target.value)}
-          id="options"
-        >
-          {options.map((_option) => (
-            <option key={_option.value} value={_option.value}>
-              {_option.label}
-            </option>
-          ))}
-        </select>
+        <Select setOption={setOption} area={area} buildingType={buildingType} />
       </div>
     </div>
   );

@@ -8,6 +8,7 @@ import { FaPerson } from "react-icons/fa6";
 // import { IoMdMail } from "react-icons/io";
 
 const Header = () => {
+  const query = "?area=null&buildingType=null&sort=recommendation";
   return (
     <div className={styles.wrapper}>
       <div className={styles.title_container}>
@@ -23,7 +24,7 @@ const Header = () => {
           </Link>
         </div>
         <div>
-          <Link href="/buy">
+          <Link href={`/buy${query}`}>
             <FaHome />
             <p>買う</p>
           </Link>
@@ -33,12 +34,6 @@ const Header = () => {
             <FaPerson />
             <p>オーナー様</p>
           </Link>
-        </div>
-        <div>
-          {/* <Link href="/contact">
-            <IoMdMail />
-            <p>問い合わせ</p>
-          </Link> */}
         </div>
       </div>
     </div>
