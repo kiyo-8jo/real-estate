@@ -6,17 +6,18 @@ import { options } from "@/app/options/options";
 import { useRouter } from "next/navigation";
 
 interface SelectProps {
-  setOption: React.Dispatch<React.SetStateAction<string>>;
+  setSort: React.Dispatch<React.SetStateAction<string>>;
   area: string | null;
   buildingType: string | null;
+  type: string;
 }
 
-const Select = ({ setOption, area, buildingType }: SelectProps) => {
+const Select = ({ setSort, area, buildingType, type }: SelectProps) => {
   const router = useRouter();
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setOption(e.target.value);
+    setSort(e.target.value);
     router.push(
-      `/buy?area=${area}&buildingType=${buildingType}&sort=${e.target.value}`,
+      `${type}?area=${area}&buildingType=${buildingType}&sort=${e.target.value}`,
       { scroll: false }
     );
   };

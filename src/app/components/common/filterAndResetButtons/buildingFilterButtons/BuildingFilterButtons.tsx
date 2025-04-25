@@ -9,14 +9,16 @@ interface BuildingFilterButtonsProps {
   buildingType: string | null;
   setBuildingType: React.Dispatch<React.SetStateAction<string | null>>;
   area: string | null;
-  option: string;
+  sort: string;
+  type: string;
 }
 
 const BuildingFilterButtons = ({
   buildingType,
   setBuildingType,
   area,
-  option,
+  sort,
+  type,
 }: BuildingFilterButtonsProps) => {
   return (
     <div className={styles.wrapper}>
@@ -27,7 +29,7 @@ const BuildingFilterButtons = ({
           className={`${buildingType === _buildingType.value && styles["active"]}`}
         >
           <Link
-            href={`/buy?area=${area}&buildingType=${_buildingType.value}&sort=${option}`}
+            href={`${type}?area=${area}&buildingType=${_buildingType.value}&sort=${sort}`}
             scroll={false}
           >
             {_buildingType.label}

@@ -6,7 +6,6 @@ import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { CoordsType } from "@/app/types/types";
 
-
 const MainImg = () => {
   const initialCoords: CoordsType = {
     mitsune: {
@@ -102,7 +101,7 @@ const MainImg = () => {
         ref={imgRef}
       />
       <map name="image-map">
-        <Link href="/rent/mitsune">
+        <Link href="/rent?area=mitsune&buildingType=null&sort=recommendation">
           <area
             target="_blank"
             alt="mitusne_rent"
@@ -111,7 +110,7 @@ const MainImg = () => {
             shape="rect"
           />
         </Link>
-        <Link href="/buy/mitsune">
+        <Link href="/buy?area=mitsune&buildingType=null&sort=recommendation">
           <area
             target="_blank"
             alt="mitusne_buy"
@@ -120,7 +119,7 @@ const MainImg = () => {
             shape="rect"
           />
         </Link>
-        <Link href="/rent/okago">
+        <Link href="/rent?area=okago&buildingType=null&sort=recommendation">
           <area
             target="_blank"
             alt="okago_rent"
@@ -129,7 +128,7 @@ const MainImg = () => {
             shape="rect"
           />
         </Link>
-        <Link href="/buy/okago">
+        <Link href="/buy?area=okago&buildingType=null&sort=recommendation">
           <area
             target="_blank"
             alt="okago_buy"
@@ -138,7 +137,7 @@ const MainImg = () => {
             shape="rect"
           />
         </Link>
-        <Link href="/rent/kashitate">
+        <Link href="/rent?area=kashitate&buildingType=null&sort=recommendation">
           <area
             target="_blank"
             alt="kashitate_rent"
@@ -147,7 +146,7 @@ const MainImg = () => {
             shape="rect"
           />
         </Link>
-        <Link href="/buy/kashitate">
+        <Link href="/buy?area=kashitate&buildingType=null&sort=recommendation">
           <area
             target="_blank"
             alt="kashitate_buy"
@@ -156,7 +155,7 @@ const MainImg = () => {
             shape="rect"
           />
         </Link>
-        <Link href="/rent/nakanogo">
+        <Link href="/rent?area=nakanogo&buildingType=null&sort=recommendation">
           <area
             target="_blank"
             alt="nakanogo_rent"
@@ -165,7 +164,7 @@ const MainImg = () => {
             shape="rect"
           />
         </Link>
-        <Link href="/buy/nakanogo">
+        <Link href="/buy?area=nakanogo&buildingType=null&sort=recommendation">
           <area
             target="_blank"
             alt="nakanogo_buy"
@@ -174,7 +173,7 @@ const MainImg = () => {
             shape="rect"
           />
         </Link>
-        <Link href="/rent/sueyoshi">
+        <Link href="/rent?area=sueyoshi&buildingType=null&sort=recommendation">
           <area
             target="_blank"
             alt="sueyoshi_rent"
@@ -183,7 +182,7 @@ const MainImg = () => {
             shape="rect"
           />
         </Link>
-        <Link href="/buy/sueyoshi">
+        <Link href="/buy?area=sueyoshi&buildingType=null&sort=recommendation">
           <area
             target="_blank"
             alt="sueyoshi_buy"

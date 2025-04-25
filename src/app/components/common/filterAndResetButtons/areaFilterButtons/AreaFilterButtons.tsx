@@ -9,14 +9,16 @@ interface AreaFilterButtonsProps {
   area: string | null;
   setArea: React.Dispatch<React.SetStateAction<string | null>>;
   buildingType: string | null;
-  option: string;
+  sort: string;
+  type: string;
 }
 
 const AreaFilterButtons = ({
   area,
   setArea,
   buildingType,
-  option,
+  sort,
+  type,
 }: AreaFilterButtonsProps) => {
   return (
     <div className={styles.wrapper}>
@@ -27,7 +29,7 @@ const AreaFilterButtons = ({
           className={`${area === _area.value && styles["active"]}`}
         >
           <Link
-            href={`/buy?area=${_area.value}&buildingType=${buildingType}&sort=${option}`}
+            href={`${type}?area=${_area.value}&buildingType=${buildingType}&sort=${sort}`}
             scroll={false}
           >
             {_area.label}

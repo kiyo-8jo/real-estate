@@ -26,7 +26,7 @@ export const GET = async (request: NextRequest) => {
       if (area !== "null" && buildingType !== "null") {
         realEstates = await prisma.realEstate.findMany({
           where: {
-            type: "buy",
+            type: "rent",
             area: area,
             buildingType: buildingType,
           },
@@ -37,7 +37,7 @@ export const GET = async (request: NextRequest) => {
       } else if (area === "null" && buildingType === "null") {
         realEstates = await prisma.realEstate.findMany({
           where: {
-            type: "buy",
+            type: "rent",
           },
           orderBy: {
             recommendation: "desc",
@@ -46,7 +46,7 @@ export const GET = async (request: NextRequest) => {
       } else if (area !== "null" && buildingType === "null") {
         realEstates = await prisma.realEstate.findMany({
           where: {
-            type: "buy",
+            type: "rent",
             area: area,
           },
           orderBy: {
@@ -56,7 +56,7 @@ export const GET = async (request: NextRequest) => {
       } else if (area === "null" && buildingType !== "null") {
         realEstates = await prisma.realEstate.findMany({
           where: {
-            type: "buy",
+            type: "rent",
             buildingType: buildingType,
           },
           orderBy: {
@@ -70,7 +70,7 @@ export const GET = async (request: NextRequest) => {
       if (area !== "null" && buildingType !== "null") {
         realEstates = await prisma.realEstate.findMany({
           where: {
-            type: "buy",
+            type: "rent",
             area: area,
             buildingType: buildingType,
           },
@@ -81,7 +81,7 @@ export const GET = async (request: NextRequest) => {
       } else if (area === "null" && buildingType === "null") {
         realEstates = await prisma.realEstate.findMany({
           where: {
-            type: "buy",
+            type: "rent",
           },
           orderBy: {
             space: "desc",
@@ -90,7 +90,7 @@ export const GET = async (request: NextRequest) => {
       } else if (area !== "null" && buildingType === "null") {
         realEstates = await prisma.realEstate.findMany({
           where: {
-            type: "buy",
+            type: "rent",
             area: area,
           },
           orderBy: {
@@ -100,7 +100,7 @@ export const GET = async (request: NextRequest) => {
       } else if (area === "null" && buildingType !== "null") {
         realEstates = await prisma.realEstate.findMany({
           where: {
-            type: "buy",
+            type: "rent",
             buildingType: buildingType,
           },
           orderBy: {
@@ -114,7 +114,7 @@ export const GET = async (request: NextRequest) => {
       if (area !== "null" && buildingType !== "null") {
         realEstates = await prisma.realEstate.findMany({
           where: {
-            type: "buy",
+            type: "rent",
             area: area,
             buildingType: buildingType,
           },
@@ -125,7 +125,7 @@ export const GET = async (request: NextRequest) => {
       } else if (area === "null" && buildingType === "null") {
         realEstates = await prisma.realEstate.findMany({
           where: {
-            type: "buy",
+            type: "rent",
           },
           orderBy: {
             createdAt: "desc",
@@ -134,7 +134,7 @@ export const GET = async (request: NextRequest) => {
       } else if (area !== "null" && buildingType === "null") {
         realEstates = await prisma.realEstate.findMany({
           where: {
-            type: "buy",
+            type: "rent",
             area: area,
           },
           orderBy: {
@@ -144,7 +144,7 @@ export const GET = async (request: NextRequest) => {
       } else if (area === "null" && buildingType !== "null") {
         realEstates = await prisma.realEstate.findMany({
           where: {
-            type: "buy",
+            type: "rent",
             buildingType: buildingType,
           },
           orderBy: {
@@ -158,7 +158,7 @@ export const GET = async (request: NextRequest) => {
       if (area !== "null" && buildingType !== "null") {
         realEstates = await prisma.realEstate.findMany({
           where: {
-            type: "buy",
+            type: "rent",
             area: area,
             buildingType: buildingType,
           },
@@ -169,7 +169,7 @@ export const GET = async (request: NextRequest) => {
       } else if (area === "null" && buildingType === "null") {
         realEstates = await prisma.realEstate.findMany({
           where: {
-            type: "buy",
+            type: "rent",
           },
           orderBy: {
             value: "asc",
@@ -178,7 +178,7 @@ export const GET = async (request: NextRequest) => {
       } else if (area !== "null" && buildingType === "null") {
         realEstates = await prisma.realEstate.findMany({
           where: {
-            type: "buy",
+            type: "rent",
             area: area,
           },
           orderBy: {
@@ -188,7 +188,7 @@ export const GET = async (request: NextRequest) => {
       } else if (area === "null" && buildingType !== "null") {
         realEstates = await prisma.realEstate.findMany({
           where: {
-            type: "buy",
+            type: "rent",
             buildingType: buildingType,
           },
           orderBy: {
@@ -202,7 +202,7 @@ export const GET = async (request: NextRequest) => {
       if (area !== "null" && buildingType !== "null") {
         realEstates = await prisma.realEstate.findMany({
           where: {
-            type: "buy",
+            type: "rent",
             area: area,
             buildingType: buildingType,
           },
@@ -213,7 +213,7 @@ export const GET = async (request: NextRequest) => {
       } else if (area === "null" && buildingType === "null") {
         realEstates = await prisma.realEstate.findMany({
           where: {
-            type: "buy",
+            type: "rent",
           },
           orderBy: {
             value: "desc",
@@ -222,7 +222,7 @@ export const GET = async (request: NextRequest) => {
       } else if (area !== "null" && buildingType === "null") {
         realEstates = await prisma.realEstate.findMany({
           where: {
-            type: "buy",
+            type: "rent",
             area: area,
           },
           orderBy: {
@@ -232,7 +232,7 @@ export const GET = async (request: NextRequest) => {
       } else if (area === "null" && buildingType !== "null") {
         realEstates = await prisma.realEstate.findMany({
           where: {
-            type: "buy",
+            type: "rent",
             buildingType: buildingType,
           },
           orderBy: {
@@ -249,3 +249,4 @@ export const GET = async (request: NextRequest) => {
     await prisma.$disconnect();
   }
 };
+

@@ -7,11 +7,20 @@ import styles from "./FilterAndResetButtons.module.css";
 import BuildingTypeFilterResetButton from "./buildingTypeFilterResetButton/BuildingTypeFilterResetButton";
 import BuildingFilterButtons from "./buildingFilterButtons/BuildingFilterButtons";
 import Select from "./select/Select";
+import { usePathname, useSearchParams } from "next/navigation";
 
 const FilterAndResetButtons = () => {
-  const [area, setArea] = useState<string | null>(null);
-  const [buildingType, setBuildingType] = useState<string | null>(null);
-  const [option, setOption] = useState<string>("recommendation");
+  const searchParams = useSearchParams();
+  // rentPageかrentPageか判別
+  const type = usePathname();
+
+  const [area, setArea] = useState<string | null>(
+    searchParams.get("area") || null
+  );
+  const [buildingType, setBuildingType] = useState<string | null>(
+    searchParams.get("buildingType")
+  );
+  const [sort, setSort] = useState<string>("recommendation");
 
   return (
     <div className={styles.wrapper}>
@@ -21,12 +30,14 @@ const FilterAndResetButtons = () => {
           area={area}
           setArea={setArea}
           buildingType={buildingType}
-          option={option}
+          sort={sort}
+          type={type}
         />
         <AreaFilterResetButton
           setArea={setArea}
           buildingType={buildingType}
-          option={option}
+          sort={sort}
+          type={type}
         />
       </div>
       <div className={styles.button_container}>
@@ -35,16 +46,23 @@ const FilterAndResetButtons = () => {
           buildingType={buildingType}
           setBuildingType={setBuildingType}
           area={area}
-          option={option}
+          sort={sort}
+          type={type}
         />
         <BuildingTypeFilterResetButton
           setBuildingType={setBuildingType}
           area={area}
-          option={option}
+          sort={sort}
+          type={type}
         />
       </div>
       <div className={styles.select_container}>
-        <Select setOption={setOption} area={area} buildingType={buildingType} />
+        <Select
+          setSort={setSort}
+          area={area}
+          buildingType={buildingType}
+          type={type}
+        />
       </div>
     </div>
   );

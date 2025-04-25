@@ -18,7 +18,7 @@ const Header = () => {
       </div>
       <div className={styles.link_container}>
         <div>
-          <Link href="/rent">
+          <Link href={`/rent${query}`}>
             <IoHomeOutline />
             <p>借りる</p>
           </Link>

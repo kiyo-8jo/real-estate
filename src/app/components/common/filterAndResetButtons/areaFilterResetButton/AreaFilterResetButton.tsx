@@ -4,13 +4,15 @@ import styles from "./AreaFilterResetButton.module.css";
 interface AreaFilterResetButtonProps {
   setArea: React.Dispatch<React.SetStateAction<string | null>>;
   buildingType: string | null;
-  option: string;
+  sort: string;
+  type: string;
 }
 
 const AreaFilterResetButton = ({
   setArea,
   buildingType,
-  option,
+  sort,
+  type,
 }: AreaFilterResetButtonProps) => {
   return (
     <div
@@ -20,7 +22,7 @@ const AreaFilterResetButton = ({
       }}
     >
       <Link
-        href={`/buy?area=null&buildingType=${buildingType}&sort=${option}`}
+        href={`${type}?area=null&buildingType=${buildingType}&sort=${sort}`}
         scroll={false}
       >
         Reset
