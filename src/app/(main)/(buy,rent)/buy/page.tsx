@@ -3,8 +3,8 @@ import styles from "./page.module.css";
 import SelectButtons from "@/app/components/common/filterAndResetButtons/FilterAndResetButtons";
 import { Suspense } from "react";
 import Loading from "@/app/components/common/loading/Loading";
-import BuyGoogleMap from "@/app/components/buy/buyGoogleMap/BuyGoogleMap";
 import AllBuyCardsContainer from "@/app/components/buy/allBuyCardsContainer/AllBuyCardsContainer";
+import BuyGoogleMap from "@/app/components/buy/BuyGoogleMap/BuyGoogleMap";
 
 const BuyPage = async ({
   searchParams,
