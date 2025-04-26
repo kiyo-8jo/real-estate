@@ -7,6 +7,8 @@ import DetailPrices from "@/app/components/detail/DetailPrices/DetailPrices";
 import DetailContact from "@/app/components/detail/DetailContact/DetailContact";
 import DetailImgsContainer from "@/app/components/detail/DetailImgsContainer/DetailImgsContainer";
 
+export const dynamic = 'force-static'
+
 const DetailPage = async ({ params }: { params: Promise<{ id: string }> }) => {
   const { id } = await params;
   const API_URL = process.env.NEXT_PUBLIC_API_URL;
