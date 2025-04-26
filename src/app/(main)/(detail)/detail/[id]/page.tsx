@@ -7,15 +7,10 @@ import DetailPrices from "@/app/components/detail/DetailPrices/DetailPrices";
 import DetailContact from "@/app/components/detail/DetailContact/DetailContact";
 import DetailImgsContainer from "@/app/components/detail/DetailImgsContainer/DetailImgsContainer";
 
-export const dynamic = "force-dynamic";
-export const fetchCache = "force-no-store";
-
 const DetailPage = async ({ params }: { params: Promise<{ id: string }> }) => {
   const { id } = await params;
   const API_URL = process.env.NEXT_PUBLIC_API_URL;
-  const res = await fetch(`${API_URL}/api/getDetailData/${id}`, {
-    cache: "no-store",
-  });
+  const res = await fetch(`${API_URL}/api/getDetailData/${id}`);
   const realEstate: RealEstateDataType = await res.json();
 
   return (
