@@ -1,8 +1,9 @@
-'use client'
+"use client";
 
 import {
   GoogleMap,
   InfoWindow,
+  Libraries,
   MarkerF,
   useJsApiLoader,
 } from "@react-google-maps/api";
@@ -38,12 +39,14 @@ const divStyle = {
   fontSize: 8,
 };
 
+const libraries = ["visualization"] as Libraries;
+
 const BuyGoogleMap = () => {
   const GOOGLE_MAP_API_KEY = process.env.NEXT_PUBLIC_MY_GOOGLE_MAP_API_KEY!;
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
     googleMapsApiKey: GOOGLE_MAP_API_KEY,
-    libraries: ["geometry", "drawing"],
+    libraries,
   });
   const [size, setSize] = useState<undefined | google.maps.Size>(undefined);
   const infoWindowOptions = {
