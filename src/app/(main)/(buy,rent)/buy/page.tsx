@@ -13,7 +13,7 @@ const BuyPage = async ({
   }>;
 }) => {
   const { area, buildingType, sort } = await searchParams;
-  
+
   const API_URL = process.env.NEXT_PUBLIC_API_URL;
   const res = await fetch(
     `${API_URL}/api/getBuyData?area=${area}&buildingType=${buildingType}&sort=${sort}`,
@@ -22,11 +22,7 @@ const BuyPage = async ({
 
   const realEstates = await res.json();
 
-  return (
-    <div>
-      <AllBuyCardsContainer realEstates={realEstates} />
-    </div>
-  );
+  return <AllBuyCardsContainer realEstates={realEstates} />;
 };
 
 export default BuyPage;

@@ -13,8 +13,8 @@ const RentPage = async ({
   }>;
 }) => {
   const { area, buildingType, sort } = await searchParams;
-  const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
+  const API_URL = process.env.NEXT_PUBLIC_API_URL;
   const res = await fetch(
     `${API_URL}/api/getRentData?area=${area}&buildingType=${buildingType}&sort=${sort}`,
     { cache: "no-store" }
@@ -22,11 +22,7 @@ const RentPage = async ({
 
   const realEstates = await res.json();
 
-  return (
-    <div>
-      <AllRentCardsContainer realEstates={realEstates} />
-    </div>
-  );
+  return <AllRentCardsContainer realEstates={realEstates} />;
 };
 
 export default RentPage;
