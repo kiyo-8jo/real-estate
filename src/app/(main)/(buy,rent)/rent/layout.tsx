@@ -10,8 +10,10 @@ const Layout = ({ children }: { children: ReactElement }) => {
     <div className={styles.wrapper}>
       <Title title={"借りる / Rent"} />
       <RentGoogleMap />
-      <FilterAndResetButtons />
-      <Suspense fallback={<Loading />}>{children}</Suspense>
+      <Suspense fallback={<Loading />}>
+        <FilterAndResetButtons />
+        {children}
+      </Suspense>
     </div>
   );
 };
