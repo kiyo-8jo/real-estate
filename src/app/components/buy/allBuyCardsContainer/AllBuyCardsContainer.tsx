@@ -6,23 +6,12 @@ interface AllBuyCardsContainerProps {
   area: string | null;
   buildingType: string | null;
   sort: string;
+  realEstates: RealEstateDataType[];
 }
 
-export const dynamic = "force-static";
-
 const AllBuyCardsContainer = async ({
-  area,
-  buildingType,
-  sort,
+  realEstates,
 }: AllBuyCardsContainerProps) => {
-  const API_URL = process.env.NEXT_PUBLIC_API_URL;
-
-  const res = await fetch(
-    `${API_URL}/api/getBuyData?area=${area}&buildingType=${buildingType}&sort=${sort}`
-  );
-
-  const realEstates = await res.json();
-
   return (
     <div className={styles.homes_container}>
       {realEstates.length === 0 ? (
