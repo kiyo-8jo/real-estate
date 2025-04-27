@@ -5,16 +5,14 @@ interface DetailContactTitleProps {
   id: number;
 }
 
+export const dynamic = "force-static";
+
 const DetailContactTitle = async (props: DetailContactTitleProps) => {
   const API_URL = process.env.NEXT_PUBLIC_API_URL;
-  const res = await fetch(`${API_URL}/api/getDetailData/${props.id}`, {
-    cache: "no-store",
-  });
+  const res = await fetch(`${API_URL}/api/getDetailData/${props.id}`);
   const realEstate: RealEstateDataType = await res.json();
 
-  return (
-    <h2 className={styles.title}>{`${realEstate.name}の問い合わせ`}</h2>
-  );
+  return <h2 className={styles.title}>{`${realEstate.name}の問い合わせ`}</h2>;
 };
 
 export default DetailContactTitle;
