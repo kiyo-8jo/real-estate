@@ -5,9 +5,6 @@ import { Suspense } from "react";
 import Loading from "@/app/components/common/loading/Loading";
 import AllBuyCardsContainer from "@/app/components/buy/allBuyCardsContainer/AllBuyCardsContainer";
 import BuyGoogleMap from "@/app/components/buy/BuyGoogleMap/BuyGoogleMap";
-import { RealEstateDataType } from "@/app/types/types";
-
-export const dynamic = "force-static";
 
 const BuyPage = async ({
   searchParams,
@@ -19,13 +16,6 @@ const BuyPage = async ({
   }>;
 }) => {
   const { area, buildingType, sort } = await searchParams;
-  const API_URL = process.env.NEXT_PUBLIC_API_URL;
-
-  const res = await fetch(
-    `${API_URL}/api/getBuyData?area=${area}&buildingType=${buildingType}&sort=${sort}`
-  );
-
-  const realEstates: RealEstateDataType[] = await res.json();
 
   return (
     <div className={styles.wrapper}>
@@ -37,7 +27,6 @@ const BuyPage = async ({
           area={area}
           buildingType={buildingType}
           sort={sort}
-          realEstates={realEstates}
         />
       </Suspense>
     </div>
