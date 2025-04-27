@@ -8,8 +8,7 @@ interface AllBuyCardsContainerProps {
   sort: string;
 }
 
-export const dynamic = "force-dynamic";
-export const fetchCache = "force-no-store";
+export const dynamic = "force-static";
 
 const AllBuyCardsContainer = async ({
   area,
@@ -19,8 +18,7 @@ const AllBuyCardsContainer = async ({
   const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
   const res = await fetch(
-    `${API_URL}/api/getBuyData?area=${area}&buildingType=${buildingType}&sort=${sort}`,
-    { cache: "no-store" }
+    `${API_URL}/api/getBuyData?area=${area}&buildingType=${buildingType}&sort=${sort}`
   );
 
   const realEstates = await res.json();
