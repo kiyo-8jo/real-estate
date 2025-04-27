@@ -3,28 +3,12 @@ import Card from "../../common/card/Card";
 import styles from "./AllBuyCardsContainer.module.css";
 
 interface AllBuyCardsContainerProps {
-  area: string | null;
-  buildingType: string | null;
-  sort: string;
+  realEstates: RealEstateDataType[];
 }
 
-export const dynamic = "force-dynamic";
-export const fetchCache = "force-no-store";
-
 const AllBuyCardsContainer = async ({
-  area,
-  buildingType,
-  sort,
+  realEstates,
 }: AllBuyCardsContainerProps) => {
-  const API_URL = process.env.NEXT_PUBLIC_API_URL;
-
-  const res = await fetch(
-    `${API_URL}/api/getBuyData?area=${area}&buildingType=${buildingType}&sort=${sort}`,
-    { cache: "no-store" }
-  );
-
-  const realEstates = await res.json();
-
   return (
     <div className={styles.homes_container}>
       {realEstates.length === 0 ? (
