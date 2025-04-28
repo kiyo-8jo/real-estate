@@ -12,33 +12,9 @@ const DetailContactForm = (props: DetailContactFormProps) => {
   const router = useRouter();
   // documentを表示させるかどうかのstate
   const [display, setDisplay] = useState<boolean>(false);
-  // checkboxにcheckされているかどうかのstate
-  const [checked, setChecked] = useState<boolean>(false);
-
-  // form入力内容
-  const [name, setName] = useState<string>("");
-  const [tel, setTel] = useState<string>("");
-  const [email, setEmail] = useState<string>("");
-  const [inquiry, setInquiry] = useState<string>("");
-
-  const handleName = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setName(getSanitizedValue(e.target.value));
-  };
-  const handleTel = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setTel(getSanitizedValue(e.target.value));
-  };
-  const handleEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setEmail(getSanitizedValue(e.target.value));
-  };
-  const handleInquiry = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setInquiry(getSanitizedValue(e.target.value));
-  };
-  const handleChecked = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setChecked(e.target.checked);
-  };
 
   // サニタイズ用関数
-  const getSanitizedValue = (inputValue: string) => {
+  const getSanitizedValue = (inputValue: FormDataEntryValue | null) => {
     return String(inputValue)
       .replace(/</g, "&lt;")
       .replace(/>/g, "&gt;")
@@ -47,11 +23,16 @@ const DetailContactForm = (props: DetailContactFormProps) => {
   };
 
   // formのsubmit
-  const handleSubmit = async (e: React.FormEvent) => {
-    const API_URL = process.env.NEXT_PUBLIC_API_URL;
-
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+    const form = new FormData(e.currentTarget);
+    const name = getSanitizedValue(form.get("name"));
+    const tel = getSanitizedValue(form.get("tel"));
+    const email = getSanitizedValue(form.get("email"));
+    const inquiry = getSanitizedValue(form.get("inquiry"));
+
+    const API_URL = process.env.NEXT_PUBLIC_API_URL;
     try {
       await fetch(`${API_URL}/api/sendEmail/detailContact`, {
         method: "POST",
@@ -68,7 +49,11 @@ const DetailContactForm = (props: DetailContactFormProps) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form
+      onSubmit={async (formData) => {
+        handleSubmit(formData);
+      }}
+    >
       {/* 名前 */}
       <div className={styles.form_part_container}>
         <div className={styles.label_container}>
@@ -80,8 +65,7 @@ const DetailContactForm = (props: DetailContactFormProps) => {
           id="name"
           placeholder="田中太郎"
           autoComplete="name"
-          value={name}
-          onChange={handleName}
+          name="name"
           required
         />
       </div>
@@ -95,8 +79,7 @@ const DetailContactForm = (props: DetailContactFormProps) => {
           id="tel"
           placeholder="000-0000-0000"
           autoComplete="tel"
-          value={tel}
-          onChange={handleTel}
+          name="tel"
           required
         />
       </div>
@@ -111,8 +94,7 @@ const DetailContactForm = (props: DetailContactFormProps) => {
           id="email"
           placeholder="info@example.com"
           autoComplete="email"
-          value={email}
-          onChange={handleEmail}
+          name="email"
           required
         />
       </div>
@@ -124,8 +106,7 @@ const DetailContactForm = (props: DetailContactFormProps) => {
         <textarea
           id="inquiry"
           placeholder="お問い合わせ内容を入力してください"
-          value={inquiry}
-          onChange={handleInquiry}
+          name="inquiry"
           required
         ></textarea>
       </div>
@@ -137,13 +118,7 @@ const DetailContactForm = (props: DetailContactFormProps) => {
               クリックしてポリシーを確認して下さい
             </span>
             <div className={styles.input_container}>
-              <input
-                type="checkbox"
-                id="checkbox"
-                checked={checked}
-                onChange={handleChecked}
-                required
-              />
+              <input type="checkbox" id="checkbox" required />
               <label htmlFor="checkbox">ポリシーを確認し、同意しました</label>
             </div>
             {display && <Document />}

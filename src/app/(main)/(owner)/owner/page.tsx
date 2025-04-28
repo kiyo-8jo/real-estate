@@ -18,8 +18,8 @@ const OwnerPage = () => {
       <form
         action={async (formData) => {
           await sendOwnerEmailAction(formData);
-          alert('メールを送信しました')
-          router.push('/')
+          alert("メールを送信しました");
+          router.push("/");
         }}
       >
         {/* 名前 */}
