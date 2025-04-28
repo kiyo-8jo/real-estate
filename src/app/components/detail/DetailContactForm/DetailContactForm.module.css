@@ -1,3 +1,11 @@
+.wrapper {
+  width: 100%;
+  max-width: 1024px;
+  margin: 80px auto 0 auto;
+  padding: 50px;
+  user-select: none;
+}
+
 .form_part_container {
   margin-bottom: 30px;
   display: flex;
@@ -12,14 +20,6 @@
 
 .form_part_container label {
   font-weight: bold;
-}
-.form_part_container span {
-  font-weight: bold;
-  margin-left: 10px;
-  padding: 1px 5px;
-  background-color: #cccccc;
-  border-radius: 10px;
-  font-size: small;
 }
 
 .form_part_container input {
@@ -54,6 +54,7 @@
 }
 
 .personalDataContainer .input_container {
+  margin-top: 10px;
   display: flex;
   align-items: center;
 }
@@ -83,6 +84,11 @@
 }
 
 @media screen and (max-width: 1280px) {
+  .wrapper {
+    font-size: small;
+    min-height: 90vh;
+  }
+
   .button_container button {
     font-size: small;
   }

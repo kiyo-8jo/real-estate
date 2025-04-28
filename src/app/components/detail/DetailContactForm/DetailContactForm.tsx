@@ -51,10 +51,7 @@ const DetailContactForm = (props: DetailContactFormProps) => {
     const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
     e.preventDefault();
-    if (!name || !email || !inquiry || !checked) {
-      alert("必須項目に入力がありません");
-      return;
-    }
+
     try {
       await fetch(`${API_URL}/api/sendEmail/detailContact`, {
         method: "POST",
@@ -76,7 +73,6 @@ const DetailContactForm = (props: DetailContactFormProps) => {
       <div className={styles.form_part_container}>
         <div className={styles.label_container}>
           <label htmlFor="name">氏名</label>
-          <span>必須</span>
         </div>
 
         <input
@@ -86,6 +82,7 @@ const DetailContactForm = (props: DetailContactFormProps) => {
           autoComplete="name"
           value={name}
           onChange={handleName}
+          required
         />
       </div>
       {/*　電話番号  */}
@@ -100,13 +97,13 @@ const DetailContactForm = (props: DetailContactFormProps) => {
           autoComplete="tel"
           value={tel}
           onChange={handleTel}
+          required
         />
       </div>
       {/*email  */}
       <div className={styles.form_part_container}>
         <div className={styles.label_container}>
           <label htmlFor="email">メールアドレス</label>
-          <span>必須</span>
         </div>
 
         <input
@@ -116,41 +113,41 @@ const DetailContactForm = (props: DetailContactFormProps) => {
           autoComplete="email"
           value={email}
           onChange={handleEmail}
+          required
         />
       </div>
       {/* inquiry */}
       <div className={styles.form_part_container}>
         <div className={styles.label_container}>
           <label htmlFor="inquiry">お問い合わせ内容</label>
-          <span>必須</span>
         </div>
         <textarea
           id="inquiry"
           placeholder="お問い合わせ内容を入力してください"
           value={inquiry}
           onChange={handleInquiry}
+          required
         ></textarea>
       </div>
       <div className={styles.personalDataContainer}>
         <p className={styles.title}>個人情報について</p>
         <div className={styles.test} id="personal_data">
           <div>
-            <p className={styles.click} onClick={() => setDisplay(true)}>
+            <span className={styles.click} onClick={() => setDisplay(true)}>
               クリックしてポリシーを確認して下さい
-            </p>
-            {display && <Document />}
-          </div>
-          {display && (
+            </span>
             <div className={styles.input_container}>
               <input
                 type="checkbox"
                 id="checkbox"
                 checked={checked}
                 onChange={handleChecked}
+                required
               />
               <label htmlFor="checkbox">ポリシーを確認し、同意しました</label>
             </div>
-          )}
+            {display && <Document />}
+          </div>
         </div>
       </div>
       <div className={styles.button_container}>
