@@ -27,6 +27,8 @@
   width: 50%;
   line-height: 1rem;
   padding: 10px;
+  border-radius: 3px;
+  border: 1px solid gray;
 }
 
 .form_part_container textarea {

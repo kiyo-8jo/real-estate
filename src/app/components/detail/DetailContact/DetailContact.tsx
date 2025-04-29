@@ -6,7 +6,7 @@ interface DetailContact {
   realEstate: RealEstateDataType;
 }
 
-const DetailContact = (props: DetailContact) => {
+const DetailContactButton = (props: DetailContact) => {
   return (
     <div className={styles.wrapper}>
       <Link href={`/detail/${props.realEstate.id}/contact`}>
@@ -18,4 +18,4 @@ const DetailContact = (props: DetailContact) => {
   );
 };
 
-export default DetailContact;
+export default DetailContactButton;

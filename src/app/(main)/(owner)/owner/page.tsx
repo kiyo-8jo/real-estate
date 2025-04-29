@@ -27,7 +27,6 @@ const OwnerPage = () => {
           <div className={styles.label_container}>
             <label htmlFor="name">氏名</label>
           </div>
-
           <input
             type="text"
             id="name"

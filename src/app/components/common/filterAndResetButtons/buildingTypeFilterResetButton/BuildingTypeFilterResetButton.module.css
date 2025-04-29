@@ -8,6 +8,7 @@
   background-color: rgb(138, 114, 114);
   margin-left: 10px;
   cursor: pointer;
+  border-radius: 3px;
 }
 
 .wrapper a {

@@ -91,7 +91,7 @@ const ContactPage = () => {
         {/*　電話番号  */}
         <div className={styles.form_part_container}>
           <div className={styles.label_container}>
-            <label htmlFor="tel">電話番号</label>
+            <label htmlFor="tel" >電話番号</label>
           </div>
           <input
             type="tel"
