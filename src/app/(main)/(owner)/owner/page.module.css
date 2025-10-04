@@ -42,6 +42,7 @@
 .button_container {
   display: flex;
   justify-content: center;
+  margin-top: 40px;
 }
 
 .personalDataContainer {
@@ -79,6 +80,7 @@
   cursor: pointer;
   border: none;
   transition: all 0.1s;
+  font-weight: bold;
 }
 
 .button_container button:hover {
