@@ -14,7 +14,7 @@ const NewFiveCardsContainer = async () => {
 
   return (
     <div className={styles.homes_container}>
-      {filteredRealEstates!.map((data: RealEstateDataType) => (
+      {filteredRealEstates.map((data: RealEstateDataType) => (
         <Card data={data} key={data.id} />
       ))}
     </div>
