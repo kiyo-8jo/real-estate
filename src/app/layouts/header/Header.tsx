@@ -5,7 +5,6 @@ import styles from "./Header.module.css";
 import { FaHome } from "react-icons/fa";
 import { IoHomeOutline } from "react-icons/io5";
 import { FaPerson } from "react-icons/fa6";
-// import { IoMdMail } from "react-icons/io";
 
 const Header = () => {
   const query = "?area=null&buildingType=null&sort=recommendation";
