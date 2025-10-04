@@ -14,7 +14,7 @@ export const sendOwnerEmailAction = async (formData: FormData) => {
   const name = getSanitizedValue(formData.get("name"));
   const tel = getSanitizedValue(formData.get("tel"));
   const email = getSanitizedValue(formData.get("email"));
-  const inquiry = getSanitizedValue(formData.get("name"));
+  const inquiry = getSanitizedValue(formData.get("inquiry"));
 
   const resend = new Resend(process.env.RESEND_API_KEY);
 
