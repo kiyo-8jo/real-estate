@@ -20,7 +20,7 @@ export const sendOwnerEmailAction = async (formData: FormData) => {
 
   try {
     await resend.emails.send({
-      from: "onboarding@resend.dev",
+      from: "onboarding@8jo-real-estate.jp",
       to: process.env.MY_ADDRESS!,
       subject: "Island Real Estate",
       react: Email({ name, tel, email, inquiry }),
