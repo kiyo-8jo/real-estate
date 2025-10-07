@@ -8,7 +8,7 @@ export async function POST(req: NextRequest) {
   const { name, tel, email, inquiry } = await req.json();
   try {
     const data = await resend.emails.send({
-      from: "onboarding@resend.dev",
+      from: "onboarding@8jo-real-estate.jp",
       to: process.env.MY_ADDRESS!,
       subject: "Island Real Estate",
       react: Email({ name, tel, email, inquiry }),
