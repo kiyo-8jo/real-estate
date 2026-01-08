@@ -15,7 +15,7 @@ export async function POST(req: NextRequest) {
     const realEstate: RealEstateDataType = await res.json();
 
     const data = await resend.emails.send({
-      from: "onboarding@8jo-real-estate.jp",
+      from: "onboarding@resend.dev",
       to: process.env.MY_ADDRESS!,
       subject: "Island Real Estate",
       react: Email({
