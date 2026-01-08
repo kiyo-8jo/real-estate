@@ -2,8 +2,8 @@ import styles from "./NewFiveCardsContainer.module.css";
 import { RealEstateDataType } from "@/app/types/types";
 import Card from "@/app/components/common/card/Card";
 
-export const dynamic = "force-dynamic"; //動的にレンダリングする
-export const fetchCache = "force-no-store"; // 常に最新のデータを取得する
+export const dynamic = "force-dynamic";
+export const fetchCache = "force-no-store";
 
 const NewFiveCardsContainer = async () => {
   // 全てのデータを新着順で取得
