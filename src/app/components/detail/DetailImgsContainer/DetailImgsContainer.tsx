@@ -1,6 +1,6 @@
 import { supabase } from "@/app/lib/supabase";
 
-import styles from './DetailImgsContainer.module.css'
+import styles from "./DetailImgsContainer.module.css";
 
 import "swiper/css";
 import DetailImgs from "../DetailImgs/DetailImgs";
@@ -20,7 +20,7 @@ const DetailImgsContainer = async (props: DetailImgsContainerProps) => {
   for (let i = 1; i <= dataLength; i++) {
     const { data } = supabase.storage
       .from("images")
-      .getPublicUrl(`${props.id}/${i}.png`);
+      .getPublicUrl(`${props.id}/${props.id}-${i}.png`);
     const imgUrl = data.publicUrl;
     urlAry.push(imgUrl);
   }

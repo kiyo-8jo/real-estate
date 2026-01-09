@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import styles from "./DetailImgs.module.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
@@ -24,8 +25,17 @@ const DetailImgs = (props: DetailImgsProps) => {
       className="mySwiper"
     >
       {props.urlAry.map((url) => (
-        <SwiperSlide key={url}>
-          <Image src={url} alt={url} width={1000} height={400} priority />
+        <SwiperSlide className={styles.container} key={url}>
+          <Image
+            className={styles.slide}
+            src={url}
+            alt={url}
+            width={0}
+            height={0}
+            sizes="100vw"
+            style={{ width: "100%", height: "auto" }}
+            priority
+          />
         </SwiperSlide>
       ))}
     </Swiper>

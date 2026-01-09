@@ -7,7 +7,7 @@ import DetailPrices from "@/app/components/detail/DetailPrices/DetailPrices";
 import DetailImgsContainer from "@/app/components/detail/DetailImgsContainer/DetailImgsContainer";
 import DetailContactButton from "@/app/components/detail/DetailContact/DetailContact";
 
-export const dynamic = 'force-static'
+export const dynamic = "force-static";
 
 const DetailPage = async ({ params }: { params: Promise<{ id: string }> }) => {
   const { id } = await params;

@@ -13,3 +13,16 @@
   font-size: xx-large;
   color: red;
 }
+
+@media screen and (max-width: 768px) {
+  .value_container .main_value {
+    margin-bottom: 10px;
+    justify-content: center;
+  }
+  .value_container .main_value p {
+    font-size: medium;
+  }
+  .value_container .sub_value {
+    justify-content: center;
+  }
+}

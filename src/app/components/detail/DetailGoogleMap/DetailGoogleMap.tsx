@@ -1,6 +1,11 @@
 "use client";
 
-import { GoogleMap, Libraries, MarkerF, useJsApiLoader } from "@react-google-maps/api";
+import {
+  GoogleMap,
+  Libraries,
+  MarkerF,
+  useJsApiLoader,
+} from "@react-google-maps/api";
 import styles from "./DetailGoogleMap.module.css";
 
 interface LatAndLng {
