@@ -16,7 +16,7 @@ const AllRentCardsContainer = async ({
       ) : (
         <div className={styles.homes_container}>
           {realEstates.map((data: RealEstateDataType) => (
-            <Card key={data.id} data={data} />
+            <Card key={data.id} buildingData={data} />
           ))}
         </div>
       )}
