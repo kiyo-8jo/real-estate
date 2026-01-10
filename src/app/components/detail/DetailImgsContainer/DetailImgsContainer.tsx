@@ -12,7 +12,7 @@ interface DetailImgsContainerProps {
 const DetailImgsContainer = async (props: DetailImgsContainerProps) => {
   // 表示している物件に該当するimgをstorageから取得
   const { data } = await supabase.storage.from("images").list(`${props.id}`);
-  const dataLength = data!.length;
+  const dataLength = data!.length - 1;
 
   //imgのurlを格納する配列
   const urlAry = [];
