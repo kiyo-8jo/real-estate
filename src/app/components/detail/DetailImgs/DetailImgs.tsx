@@ -34,6 +34,7 @@ const DetailImgs = (props: DetailImgsProps) => {
             height={0}
             sizes="100vw"
             style={{ width: "100%", height: "auto" }}
+            loading={"lazy"}
           />
         </SwiperSlide>
       ))}
