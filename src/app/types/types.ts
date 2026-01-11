@@ -41,3 +41,10 @@ export interface CoordsType {
     buy: number[];
   };
 }
+
+export interface MapAryDataType {
+  id: number;
+  lat: number;
+  lng: number;
+  name: string;
+}

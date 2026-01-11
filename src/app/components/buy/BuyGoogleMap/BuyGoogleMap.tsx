@@ -7,10 +7,12 @@ import {
   MarkerF,
   useJsApiLoader,
 } from "@react-google-maps/api";
+import { useEffect, useState } from "react";
+import { MapAryDataType, RealEstateDataType } from "@/app/types/types";
 import Link from "next/link";
-import { useState } from "react";
 import styles from "./BuyGoogleMap.module.css";
 
+/* GoogleMapの設定 */
 // 地図全体のcss
 const containerStyle = {
   width: "100%",
@@ -23,20 +25,10 @@ const center = {
   lng: 139.791294,
 };
 
-// マーカーの緯度経度
-const marker1 = {
-  lat: 33.077247,
-  lng: 139.788224,
-};
-const marker2 = {
-  lat: 33.127433,
-  lng: 139.755436,
-};
-
 // 吹き出しのcss
 const divStyle = {
   background: "white",
-  fontSize: 8,
+  fontSize: 6,
 };
 
 const libraries = ["visualization"] as Libraries;
@@ -55,33 +47,62 @@ const BuyGoogleMap = () => {
   const createOffsetSize = () => {
     return setSize(new window.google.maps.Size(0, -45));
   };
+
+  // データ取得
+  const [data, setData] = useState<undefined | RealEstateDataType[]>([]);
+  useEffect(() => {
+    const API_URL = process.env.NEXT_PUBLIC_API_URL;
+    const getData = async () => {
+      const res = await fetch(`${API_URL}/api/getAllBuyData`);
+      const _data = await res.json();
+      setData(_data);
+    };
+    getData();
+  }, []);
+
+  // マップ用データ配列
+  const dataAry: MapAryDataType[] = [];
+  data!.forEach((_data) =>
+    dataAry.push({
+      id: _data.id,
+      lat: _data.mapLat,
+      lng: _data.mapLng,
+      name: _data.name,
+    })
+  );
+
   return (
     <div className={styles.wrapper}>
       {isLoaded && (
         <GoogleMap
           center={center}
-          zoom={12}
+          zoom={13}
           mapContainerStyle={containerStyle}
           onLoad={() => createOffsetSize()}
         >
           {/* マーカー */}
-          <MarkerF position={marker1} />
-          <MarkerF position={marker2} />
-          {/* 吹き出し */}
-          <InfoWindow position={marker1} options={infoWindowOptions}>
-            <div style={divStyle}>
-              <Link href="/">
-                <h1>販売物件1</h1>
-              </Link>
-            </div>
-          </InfoWindow>
-          <InfoWindow position={marker2} options={infoWindowOptions}>
-            <div style={divStyle}>
-              <Link href="/">
-                <h1>販売物件2</h1>
-              </Link>
-            </div>
-          </InfoWindow>
+          {dataAry!.map((data) => {
+            const _ary = { lat: data.lat, lng: data.lng };
+            return <MarkerF position={_ary} key={data.id} />;
+          })}
+
+          {/* 吹き出し*/}
+          {dataAry!.map((data) => {
+            const _ary = { lat: data.lat, lng: data.lng };
+            return (
+              <InfoWindow
+                position={_ary}
+                options={infoWindowOptions}
+                key={data.id}
+              >
+                <div style={divStyle}>
+                  <Link href={`/detail/${data.id}`}>
+                    <h1>{data.name}</h1>
+                  </Link>
+                </div>
+              </InfoWindow>
+            );
+          })}
         </GoogleMap>
       )}
     </div>
