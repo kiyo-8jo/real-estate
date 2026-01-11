@@ -1,28 +1,18 @@
 import type { Metadata } from "next";
-// import localFont from "next/font/local";
-import { Inter, Roboto_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import Header from "@/app/layouts/header/Header";
 import Footer from "@/app/layouts/footer/Footer";
 
-// const geistSans = localFont({
-//   src: "./fonts/GeistVF.woff",
-//   variable: "--font-geist-sans",
-//   weight: "100 900",
-// });
-// const geistMono = localFont({
-//   src: "./fonts/GeistMonoVF.woff",
-//   variable: "--font-geist-mono",
-//   weight: "100 900",
-// });
-
-const inter = Inter({
-  subsets: ["latin"],
-  display: "swap",
+const geistSans = localFont({
+  src: "./fonts/GeistVF.woff",
+  variable: "--font-geist-sans",
+  weight: "100 900",
 });
-const roboto_mono = Roboto_Mono({
-  subsets: ["latin"],
-  display: "swap",
+const geistMono = localFont({
+  src: "./fonts/GeistMonoVF.woff",
+  variable: "--font-geist-mono",
+  weight: "100 900",
 });
 
 export const metadata: Metadata = {
@@ -37,7 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <body className={`${inter.className} ${roboto_mono.className} `}>
+      <body className={`${geistSans.variable} ${geistMono.variable} `}>
         <Header />
         {children}
         <Footer />
