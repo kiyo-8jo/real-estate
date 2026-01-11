@@ -90,7 +90,7 @@ const Card = async ({ buildingData }: CardProps) => {
             <p>賃料</p>
           </div>
           <div className={styles.value}>
-            <p>{buildingData.value}円</p>
+            <p>{buildingData.value}万円</p>
           </div>
         </div>
         <div className={styles.container}>
