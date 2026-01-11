@@ -27,7 +27,7 @@ const DetailImgs = (props: DetailImgsProps) => {
       {props.urlAry.map((url) => (
         <SwiperSlide className={styles.container} key={url}>
           {/* 1枚目の画像にはpriorityをつける */}
-          {url.toString().match("/-1.png/") && (
+          {url.includes("-1.png") ? (
             <Image
               className={styles.slide}
               src={url}
@@ -38,17 +38,18 @@ const DetailImgs = (props: DetailImgsProps) => {
               style={{ width: "100%", height: "auto" }}
               priority
             />
+          ) : (
+            <Image
+              className={styles.slide}
+              src={url}
+              alt={url}
+              width={0}
+              height={0}
+              sizes="100vw"
+              style={{ width: "100%", height: "auto" }}
+              loading={"lazy"}
+            />
           )}
-          <Image
-            className={styles.slide}
-            src={url}
-            alt={url}
-            width={0}
-            height={0}
-            sizes="100vw"
-            style={{ width: "100%", height: "auto" }}
-            loading={"lazy"}
-          />
         </SwiperSlide>
       ))}
     </Swiper>
