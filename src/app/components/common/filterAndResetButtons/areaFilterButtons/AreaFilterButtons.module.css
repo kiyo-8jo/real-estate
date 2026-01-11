@@ -29,3 +29,16 @@
 .wrapper .active {
   background-color: rgb(231, 178, 98);
 }
+
+@media screen and (max-width: 768px) {
+  .wrapper button {
+    max-width: 40px;
+  }
+  .wrapper button a {
+    font-size: small;
+    padding: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

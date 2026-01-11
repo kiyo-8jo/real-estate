@@ -20,3 +20,11 @@
   text-align: center;
   font-weight: bolder;
 }
+
+@media screen and (max-width: 768px) {
+  .button_container p {
+    min-width: 40px;
+    margin-right: 5px;
+    font-size: small;
+  }
+}
